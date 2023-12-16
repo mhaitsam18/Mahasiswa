@@ -37,14 +37,14 @@
                                     <th class="pt-0">#</th>
                                     <th class="pt-0">Nama Lengkap</th>
                                     <th class="pt-0">Alamat KTP</th>
-                                    <th class="pt-0">Alamat Domisili</th>
-                                    <th class="pt-0">Provinsi</th>
-                                    <th class="pt-0">Kabupaten</th>
-                                    <th class="pt-0">Kecamatan</th>
-                                    <th class="pt-0">Nomor Telepon</th>
+                                    {{-- <th class="pt-0">Alamat Domisili</th> --}}
+                                    {{-- <th class="pt-0">Provinsi</th> --}}
+                                    {{-- <th class="pt-0">Kabupaten</th> --}}
+                                    {{-- <th class="pt-0">Kecamatan</th> --}}
+                                    {{-- <th class="pt-0">Nomor Telepon</th> --}}
                                     <th class="pt-0">Nomor HP</th>
                                     <th class="pt-0">Email</th>
-                                    <th class="pt-0">Kewarganegaraan</th>
+                                    {{-- <th class="pt-0">Kewarganegaraan</th>
                                     <th class="pt-0">Asal negara</th>
                                     <th class="pt-0">Tanggal Lahir</th>
                                     <th class="pt-0">Negara Tempat Lahir</th>
@@ -53,7 +53,8 @@
                                     <th class="pt-0">Jenis Kelamin</th>
                                     <th class="pt-0">Status Menikah</th>
                                     <th class="pt-0">Agama</th>
-                                    <th class="pt-0">Foto</th>
+                                    <th class="pt-0">Foto</th> --}}
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,14 +63,14 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $mahasiswa->nama_lengkap }}</td>
                                         <td>{{ $mahasiswa->alamat_ktp }}</td>
-                                        <td>{{ $mahasiswa->alamat_domisili }}</td>
+                                        {{-- <td>{{ $mahasiswa->alamat_domisili }}</td>
                                         <td>{{ $mahasiswa->kabupaten->provinsi->provinsi }}</td>
                                         <td>{{ $mahasiswa->kabupaten->kabupaten }}</td>
                                         <td>{{ $mahasiswa->kecamatan }}</td>
-                                        <td>{{ $mahasiswa->nomor_telepon }}</td>
+                                        <td>{{ $mahasiswa->nomor_telepon }}</td> --}}
                                         <td>{{ $mahasiswa->nomor_hp }}</td>
                                         <td>{{ $mahasiswa->email }}</td>
-                                        <td>{{ $mahasiswa->kewarganegaraan }}</td>
+                                        {{-- <td>{{ $mahasiswa->kewarganegaraan }}</td>
                                         <td>{{ $mahasiswa->wna ?? 'Indonesia' }}</td>
                                         <td>{{ Carbon::parse($mahasiswa->tanggal_lahir)->isoFormat('LL') }}</td>
                                         <td>{{ $mahasiswa->negara_tempat_lahir ?? 'Indonesia' }}</td>
@@ -79,7 +80,7 @@
                                         <td>{{ $mahasiswa->status_menikah }}</td>
                                         <td>{{ $mahasiswa->agama }}</td>
                                         <td><img src="{{ asset('storage/' . $mahasiswa->foto) }}"
-                                                class="img-fluid img-thumbnail" alt=""></td>
+                                                class="img-fluid img-thumbnail" alt=""></td> --}}
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <a href="/admin/mahasiswa/{{ $mahasiswa->id }}/edit"

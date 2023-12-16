@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Provinsi;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProvinsiTableSeeder extends Seeder
 {

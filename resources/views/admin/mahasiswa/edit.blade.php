@@ -239,10 +239,15 @@
                                         <label class="form-label" for="provinsi_tempat_lahir">
                                             Provinsi Tempat Lahir <span class="text-danger"></span>
                                         </label>
-                                        <input type="text"
-                                            class="form-control @error('provinsi_tempat_lahir') is-invalid @enderror"
-                                            id="provinsi_tempat_lahir" name="provinsi_tempat_lahir"
-                                            value="{{ old('provinsi_tempat_lahir', $mahasiswa->provinsi_tempat_lahir) }}">
+
+                                        <select class="form-select @error('provinsi_tempat_lahir') is-invalid @enderror"
+                                            id="provinsi_tempat_lahir" name="provinsi_tempat_lahir">
+                                            <option value="" selected disabled>Pilih Provinsi</option>
+                                            @foreach ($data_provinsi as $provinsi)
+                                                <option value="{{ $provinsi->provinsi }}" @selected($provinsi->provinsi == old('provinsi_tempat_lahir', $mahasiswa->provinsi_tempat_lahir))>
+                                                    {{ $provinsi->provinsi }}</option>
+                                            @endforeach
+                                        </select>
                                         @error('provinsi_tempat_lahir')
                                             <div class="text-danger">
                                                 {{ $message }}
