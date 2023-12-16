@@ -37,6 +37,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::middleware('admin')->group(function () {
         Route::prefix('admin')->group(function () {
             Route::get('/', [AdminController::class, 'index'])->name('admin');
@@ -56,6 +57,5 @@ Route::middleware('auth')->group(function () {
     Route::middleware('mahasiswa')->group(function () {
         Route::prefix('mahasiswa')->group(function () {
         });
-        Route::get('/home', [HomeController::class, 'index'])->name('home');
     });
 });
