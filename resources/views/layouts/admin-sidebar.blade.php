@@ -13,44 +13,42 @@
     <div class="sidebar-body" id="background-mamhi">
         <ul class="nav">
             <li class="nav-item nav-category">Menu</li>
-            <li class="nav-item">
-                <a href="/admin/index" class="nav-link @if ($page == 'index') active @endif">
-                    <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Beranda</span>
-                </a>
-            </li>
-            {{-- <li class="nav-item">
-                <a href="/admin/jadwal-praktik" class="nav-link @if ($page == 'jadwal-praktik') active @endif">
-                    <i class="link-icon" data-feather="calendar"></i>
-                    <span class="link-title">Jadwal</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="/admin/hasil" class="nav-link @if ($page == 'hasil') active @endif">
-                    <i class="link-icon" data-feather="file"></i>
-                    <span class="link-title">Hasil</span>
-                </a>
-            </li> --}}
-            <li class="nav-item">
-                <a class="nav-link @if ($page == 'index') active @endif>" data-bs-toggle="collapse"
-                    href="#datas" role="button" aria-expanded="false" aria-controls="datas">
-                    <i class="link-icon" data-feather="database"></i>
-                    <span class="link-title">Data</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                <div class="collapse" id="datas">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="/admin/user" class="nav-link @if ($page == 'user') active @endif">Data
-                                User</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/mahasiswa"
-                                class="nav-link @if ($page == 'mahasiswa') active @endif">Data mahasiswa</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+            @can('admin')
+                <li class="nav-item">
+                    <a href="/admin/index" class="nav-link @if ($page == 'index') active @endif">
+                        <i class="link-icon" data-feather="box"></i>
+                        <span class="link-title">Beranda</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link @if ($page == 'index') active @endif>" data-bs-toggle="collapse"
+                        href="#datas" role="button" aria-expanded="false" aria-controls="datas">
+                        <i class="link-icon" data-feather="database"></i>
+                        <span class="link-title">Data</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
+                    </a>
+                    <div class="collapse" id="datas">
+                        <ul class="nav sub-menu">
+                            <li class="nav-item">
+                                <a href="/admin/user" class="nav-link @if ($page == 'user') active @endif">Data
+                                    User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/mahasiswa"
+                                    class="nav-link @if ($page == 'mahasiswa') active @endif">Data mahasiswa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            @endcan
+            @can('mahasiswa')
+                <li class="nav-item">
+                    <a href="/mahasiswa/index" class="nav-link @if ($page == 'index') active @endif">
+                        <i class="link-icon" data-feather="box"></i>
+                        <span class="link-title">Dashboard</span>
+                    </a>
+                </li>
+            @endcan
         </ul>
     </div>
 </nav>

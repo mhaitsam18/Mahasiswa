@@ -138,13 +138,16 @@ class AuthController extends Controller
                 case 'admin':
                     return redirect()->intended('/admin/index');
                     break;
-                case 'Mahasiswa':
+                case 'mahasiswa':
                     $mahasiswa = Mahasiswa::where('user_id', auth()->user()->id)->first();
                     $request->session()->put('mahasiswa', $mahasiswa);
                     $request->session()->put('mahasiswa_id', $mahasiswa->id);
                     return redirect()->intended('/mahasiswa/index');
                     break;
                 default:
+                    Auth::logout();
+                    $request->session()->invalidate();
+                    $request->session()->regenerateToken();
                     return back()->with('loginError', 'Akun Anda tidak memiliki otoritas apapun, Hubungi Admin terkait');
                     # code...
                     break;
